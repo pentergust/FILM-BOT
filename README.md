@@ -25,11 +25,11 @@ Telegram бот DoranimeBot <img src="https://media.tenor.com/9ZsRZ-PXPlwAAAAi/t
 
 Примеры работы бота показаны на скриншотах.
 
-<img width="200px" src="img/photo1718557251.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="img/photo1718557273.jpeg" alt="qr"/> 
+<img width="200px" src="_images/photo1718557251.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="_images/photo1718557273.jpeg" alt="qr"/> 
 
-<img width="200px" src="img/photo1718557290.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="img/photo1718557376.jpeg" alt="qr"/> 
+<img width="200px" src="_images/photo1718557290.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="_images/photo1718557376.jpeg" alt="qr"/> 
 
-<img width="200px" src="img/photo1718557427.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="img/photo1718557461.jpeg" alt="qr"/> 
+<img width="200px" src="_images/photo1718557427.jpeg" alt="qr"/> &nbsp; &nbsp;  <img width="200px" src="_images/photo1718557461.jpeg" alt="qr"/> 
 
 
 # [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=1000&random=false&width=435&height=40&lines=%D0%A0%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B9+%D0%B1%D0%BE%D1%82%D0%B0%3A+)](https://git.io/typing-svg) 
