@@ -20,9 +20,10 @@ Documentation for this module.
 import requests
 import textwrap
 
+from config import KINOPOISK_TOKEN
 
-API = 'EXJ45X6-NF9MGN7-JA5CJJQ-M14FMA9'  # введите свой токен (ссылка для получения: https://kinopoisk.dev/)
-URL = 'https://api.kinopoisk.dev/v1.4/'
+
+API_URL = 'https://api.kinopoisk.dev/v1.4/'
 
 
 def genre_search(message, type):
@@ -36,7 +37,7 @@ def genre_search(message, type):
     message = ''.join(message.split())
     genres = message.split(",")
 
-    headers = {'X-API-KEY': API}
+    headers = {'X-API-KEY': KINOPOISK_TOKEN}
     if type == 'аниме':
         params = {
             'notNullFields': ['name', 'description'],
@@ -50,7 +51,7 @@ def genre_search(message, type):
             'countries.name': ['Корея Южная', 'Япония', 'Китай'],
             'genres.name': genres
         }
-    response = requests.get(URL + 'movie', headers=headers, params=params)
+    response = requests.get(API_URL + 'movie', headers=headers, params=params)
 
     if response.status_code == 200:
         data = response.json()['docs']
@@ -74,11 +75,11 @@ def title_search(message):
     """
     title = message
 
-    headers = {'X-API-KEY': API}
+    headers = {'X-API-KEY': KINOPOISK_TOKEN}
     params = {
         'query': title
     }
-    response = requests.get(URL + 'movie/search', headers=headers, params=params)
+    response = requests.get(API_URL + 'movie/search', headers=headers, params=params)
 
     if response.status_code == 200:
         data = response.json()['docs'][0]
@@ -102,12 +103,12 @@ def actor_search(message):
     message.replace(', ', ',')
     actor = message.split(",")
 
-    headers = {'X-API-KEY': API}
+    headers = {'X-API-KEY': KINOPOISK_TOKEN}
 
     params = {
         'query': actor
     }
-    response = requests.get(URL + 'person/search', headers=headers, params=params)
+    response = requests.get(API_URL + 'person/search', headers=headers, params=params)
 
     if response.status_code == 200:
         actor_id = response.json()['docs'][0]['id']
@@ -119,7 +120,7 @@ def actor_search(message):
               'countries.name': ['Корея Южная', 'Япония', 'Китай']
               }
 
-    response = requests.get(f'{URL}movie?page=1&limit=10&persons.id={actor_id}', headers=headers, params=params)
+    response = requests.get(f'{API_URL}movie?page=1&limit=10&persons.id={actor_id}', headers=headers, params=params)
 
     if response.status_code == 200:
         data = response.json()['docs']
@@ -144,7 +145,7 @@ def year_search(message, type):
         """
     year = message.replace(' ', '')
 
-    headers = {'X-API-KEY': API}
+    headers = {'X-API-KEY': KINOPOISK_TOKEN}
     if type == 'аниме':
         params = {
             'notNullFields': ['name', 'description'],
@@ -159,7 +160,7 @@ def year_search(message, type):
             'countries.name': ['Корея Южная', 'Япония', 'Китай']
         }
 
-    response = requests.get(URL + 'movie', headers=headers, params=params)
+    response = requests.get(API_URL + 'movie', headers=headers, params=params)
 
     if response.status_code == 200:
         data = response.json()['docs']
@@ -181,7 +182,7 @@ def random_dorama(type):
         :param type: anime or dorama
         :return: result (anime or dorama)
         """
-    headers = {'X-API-KEY': API}
+    headers = {'X-API-KEY': KINOPOISK_TOKEN}
 
     if type == 'аниме':
         params = {
@@ -195,7 +196,7 @@ def random_dorama(type):
             'countries.name': ['Корея Южная', 'Япония', 'Китай']
         }
 
-    response = requests.get(URL + 'movie/random', headers=headers, params=params)
+    response = requests.get(API_URL + 'movie/random', headers=headers, params=params)
 
     if response.status_code == 200:
         print('OK')

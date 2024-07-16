@@ -1,7 +1,7 @@
 """launching the bot"""
+
+from config import BOT_TOKEN
 from DoranimeBot import DoranimeBot
 
-TOKEN = "7265587584:AAHDLhga1j7R4viObqfhhIP4XrW3Pdkabzg"
-bot = DoranimeBot(TOKEN)
+bot = DoranimeBot(BOT_TOKEN)
 bot.run()
-
