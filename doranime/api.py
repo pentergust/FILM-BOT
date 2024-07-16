@@ -20,7 +20,7 @@ Documentation for this module.
 import requests
 import textwrap
 
-from config import KINOPOISK_TOKEN
+from doranime.config import KINOPOISK_TOKEN
 
 
 API_URL = 'https://api.kinopoisk.dev/v1.4/'

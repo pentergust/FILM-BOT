@@ -1,10 +1,13 @@
 """import moduls"""
+
+import sqlite3
+
 import telebot
 from telebot import types
-import sqlite3
-import GeneralMessages
-from dorama_and_anime import Dorama, Anime
-import Api
+
+from doranime import messages
+from doranime.dorama_and_anime import Dorama, Anime
+from doranime import api
 
 
 class DoranimeBot:
@@ -39,10 +42,10 @@ class DoranimeBot:
         btn3 = types.KeyboardButton("❤️ Избранное")
         btn4 = types.KeyboardButton("❓ Что я умею?")
         markup.add(btn1, btn2, btn3, btn4)
-        self.bot.send_message(message.chat.id, GeneralMessages.START_MSG, reply_markup=markup)
+        self.bot.send_message(message.chat.id, messages.START_MSG, reply_markup=markup)
 
     def help(self, message):
-        self.bot.send_message(message.chat.id, GeneralMessages.HELP_MSG)
+        self.bot.send_message(message.chat.id, messages.HELP_MSG)
 
     def func(self, message):
         """Main menu
@@ -51,7 +54,7 @@ class DoranimeBot:
         :return: response to the user
         """
         if (message.text == "❓ Что я умею?"):
-            self.bot.send_message(message.chat.id, GeneralMessages.HELP_MSG)
+            self.bot.send_message(message.chat.id, messages.HELP_MSG)
         elif (message.text == "🌸 Аниме"):
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             btn1 = types.KeyboardButton("Поиск аниме по названию 🔎")
@@ -132,13 +135,13 @@ class DoranimeBot:
         elif (message.text == "Случайная дорама 💡"):
             type = 'дорама'
             msg = self.bot.send_message(message.chat.id, 'Держи случайную дораму, надеюсь, что тебе она понравится 😊\n')
-            information = Api.random_dorama(type)
+            information = api.random_dorama(type)
             self.bot.send_message(message.chat.id, information)
 
         elif (message.text == "Случайное аниме 💡"):
             type = 'аниме'
             msg = self.bot.send_message(message.chat.id, 'Держи случайное аниме, надеюсь, что тебе оно понравится 😊\n')
-            information = Api.random_dorama(type)
+            information = api.random_dorama(type)
             self.bot.send_message(message.chat.id, information)
 
         elif (message.text == "Добавить в Избранное 📝"):
@@ -283,7 +286,7 @@ class DoranimeBot:
     def process_title_search(self, message):
         chat_id = message.chat.id
         title = message.text
-        information = Api.title_search(title)
+        information = api.title_search(title)
         self.bot.send_message(chat_id, information)
 
     def process_genre_search(self, message):
