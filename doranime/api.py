@@ -17,23 +17,22 @@ Documentation for this module.
 #on 16/06/2024.
 
 # Imports
-import requests
 import textwrap
 
-from doranime.config import KINOPOISK_TOKEN
+import requests
 
+from doranime.config import KINOPOISK_TOKEN
 
 API_URL = 'https://api.kinopoisk.dev/v1.4/'
 
 
 def genre_search(message, type):
-    """function for searching by genre.
+    """Function for searching by genre.
 
     :param message: user's message
     :param type: anime or dorama
     :return: result (anime or dorama)
     """
-
     message = ''.join(message.split())
     genres = message.split(",")
 
@@ -68,7 +67,7 @@ def genre_search(message, type):
 
 
 def title_search(message):
-    """function for searching by name.
+    """Function for searching by name.
 
     :param message: user's message
     :return: result (anime or dorama)
@@ -94,7 +93,7 @@ def title_search(message):
 
 
 def actor_search(message):
-    """function for searching by actor.
+    """Function for searching by actor.
 
     :param message: user's message
     :return: result (anime or dorama)
@@ -137,12 +136,12 @@ def actor_search(message):
 
 
 def year_search(message, type):
-    """function for searching by years.
+    """Function for searching by years.
 
-        :param message: user's message
-        :param type: anime or dorama
-        :return: result (anime or dorama)
-        """
+    :param message: user's message
+    :param type: anime or dorama
+    :return: result (anime or dorama)
+    """
     year = message.replace(' ', '')
 
     headers = {'X-API-KEY': KINOPOISK_TOKEN}
@@ -177,11 +176,11 @@ def year_search(message, type):
 
 
 def random_dorama(type):
-    """function for searching random dorama.
+    """Function for searching random dorama.
 
-        :param type: anime or dorama
-        :return: result (anime or dorama)
-        """
+    :param type: anime or dorama
+    :return: result (anime or dorama)
+    """
     headers = {'X-API-KEY': KINOPOISK_TOKEN}
 
     if type == 'аниме':

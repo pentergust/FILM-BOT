@@ -5,9 +5,8 @@ import sqlite3
 import telebot
 from telebot import types
 
-from doranime import messages
-from doranime.dorama_and_anime import Dorama, Anime
-from doranime import api
+from doranime import api, messages
+from doranime.dorama_and_anime import Anime, Dorama
 
 
 class DoranimeBot:
@@ -28,9 +27,7 @@ class DoranimeBot:
         self.bot.message_handler(content_types=['text'])(self.func)
 
     def start(self, message):
-        """
-
-        :param message: user's message
+        """:param message: user's message
         :return: response to the user
         """
         chat_id = message.chat.id
@@ -191,7 +188,7 @@ class DoranimeBot:
             self.user_data[chat_id]['anime'].append(Anime(name, comments))
 
     def add_serial(self, message):
-        """adding a dorama or anime to the database
+        """Adding a dorama or anime to the database
 
         :param message: dorama or anime
         :return:
@@ -233,7 +230,7 @@ class DoranimeBot:
         self.conn.commit()
 
     def delete_serial(self, message):
-        """deleting a dorama or anime from the database
+        """Deleting a dorama or anime from the database
 
         :param message: dorama or anime
         :return:
@@ -258,7 +255,7 @@ class DoranimeBot:
         self.conn.commit()
 
     def list_serial(self, message):
-        """displaying a list of favorites
+        """Displaying a list of favorites
 
         :param message:
         :return:
