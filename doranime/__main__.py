@@ -1,4 +1,12 @@
-"""launching the bot"""
+"""Запускаем бота.
+
+Точка входа для модуля.
+Чтобы запустить бота:
+
+.. code-block:: shell
+
+    python -m doranime
+"""
 
 from doranime.config import BOT_TOKEN
 from doranime.doranime import DoranimeBot
